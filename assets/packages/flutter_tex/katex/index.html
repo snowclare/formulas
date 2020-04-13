@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<head>
+    <link crossorigin="anonymous" href="katex.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="katex.js"></script>
+    <script crossorigin="anonymous" src="contrib/mhchem.js"></script>
+    <style>
+        .katex-display>.katex {
+            display: inline-block;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow-x: scroll;
+            text-align: initial;
+        }
+
+        .katex {
+            font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+            line-height: 1.2;
+            white-space: normal;
+            text-indent: 0;
+        }
+
+    </style>
+
+</head>
+
+
+<div id="teXHTML"></div>
+
+<script crossorigin="anonymous" defer onload="
+        var teXHTMLDiv = document.getElementById('teXHTML');
+        teXHTMLDiv.innerHTML = decodeURIComponent(location.search.split('teXHTML=')[1]);
+        renderMathInElement(teXHTMLDiv);
+        var height = teXHTMLDiv.clientHeight;
+        RenderedWebViewHeight.postMessage(height);" src="contrib/auto-render.js"></script>
+
+</html>
